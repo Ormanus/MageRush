@@ -1,0 +1,14 @@
+OK
+OK
+OK
+OK
+
+YES
+Kyllä
+Yes
+Ja
+
+NO
+Ei
+No
+Nej
