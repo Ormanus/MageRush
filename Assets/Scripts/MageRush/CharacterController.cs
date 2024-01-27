@@ -35,6 +35,23 @@ public class CharacterController : NetworkBehaviour
         }
     }
 
+    public void Attack()
+    {
+        AttackServerRpc(transform.position);
+    }
+
+    [ServerRpc]
+    public void AttackServerRpc(Vector2 pos)
+    {
+        CreateAttackClientRpc(pos);
+    }
+
+    [ClientRpc]
+    public void CreateAttackClientRpc(Vector2 pos)
+    {
+        EffectFactory.Instance.CreateEffect(pos);
+    }
+
 
     void Update()
     {
@@ -60,10 +77,5 @@ public class CharacterController : NetworkBehaviour
     void Die()
     {
         state = State.Dead;
-    }
-
-    public void Shoot()
-    {
-        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }

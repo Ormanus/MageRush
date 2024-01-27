@@ -19,6 +19,9 @@ public class PlayerInput : MonoBehaviour
 
     void GetInput()
     {
+        if (!GetComponent<NetworkObject>().IsOwner)
+            return;
+
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
@@ -38,8 +41,7 @@ public class PlayerInput : MonoBehaviour
         }
         if (dir != Vector2.zero)
         {
-            if (GetComponent<NetworkObject>().IsOwner)
-                GetComponent<CharacterController>().MoveToDirection(dir);
+            GetComponent<CharacterController>().MoveToDirection(dir);
         }
         else
         {
@@ -47,8 +49,8 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GetComponent<NetworkObject>().IsOwner)
-                GetComponent<CharacterController>().Shoot();
+            // Attack
+            GetComponent<CharacterController>().Attack();
         }
     }
 }
