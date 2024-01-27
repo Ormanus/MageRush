@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class OrcAI : MonoBehaviour
 {
-    public float speed = 5;
     public float seeDistance = 20;
     public CharacterController characterController;
 
@@ -34,7 +33,6 @@ public class OrcAI : MonoBehaviour
 
             if ((transform.position - closest.position).sqrMagnitude < seeDistanceSquared)
             {
-                Debug.Log("Move here");
                 characterController.MoveToDirection(closest.position - transform.position);
             }
         }
