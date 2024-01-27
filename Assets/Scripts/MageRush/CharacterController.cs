@@ -111,10 +111,7 @@ public class CharacterController : NetworkBehaviour
     }
 
 
-    void Update()
-    {
-        transform.position = Position.Value;
-    }
+ 
 
     public void Idle()
     {
@@ -129,7 +126,8 @@ public class CharacterController : NetworkBehaviour
     public void MoveToDirection(Vector2 direction)
     {
         state = State.Moving;
-        Position.Value += direction.normalized * Time.deltaTime * speed;
+        // Position.Value += direction.normalized * Time.deltaTime * speed;
+        GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
     }
 
     public void MoveToPosition(Vector2 position)
