@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7477821668301069980}
   - component: {fileID: 8516906303820909519}
   - component: {fileID: 3685315504852442441}
+  - component: {fileID: 6692022160873363471}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -107,3 +108,23 @@ MonoBehaviour:
   speed: 1
   isHost: 0
   isYou: 1
+  hp: 100
+--- !u!114 &6692022160873363471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971206827583926078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f495379ed48dda4695be22fc962d031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 7223950226953391895, guid: f9e560436f9b2c643924fcd1c592453e, type: 3}
+  - {fileID: 822625517, guid: f9e560436f9b2c643924fcd1c592453e, type: 3}
+  - {fileID: -880617473, guid: f9e560436f9b2c643924fcd1c592453e, type: 3}
+  - {fileID: 1678602787, guid: f9e560436f9b2c643924fcd1c592453e, type: 3}
+  - {fileID: 8166710274925509176, guid: b003a055db404014ab5cda225ae5c3d1, type: 3}
+  fps: 3
