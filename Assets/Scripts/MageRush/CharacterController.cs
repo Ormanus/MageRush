@@ -1,10 +1,7 @@
-using NUnit.Framework.Constraints;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using Unity.Netcode;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : NetworkBehaviour
 {
     public enum State
     {
@@ -26,47 +23,20 @@ public class CharacterController : MonoBehaviour
     public bool isYou;
     public int hp = 100;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    NetworkVariable<Vector2> Position = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-    void GetInput()
+    public override void OnNetworkSpawn()
     {
-        Vector2 dir = Vector2.zero;
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            dir += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            dir += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            dir += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            dir += Vector2.right;
-        }
-        if (dir != Vector2.zero)
-        {
-            MoveToDirection(dir);
-        }
-        else
+        if (!IsOwner)
         {
 
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (isYou) {
-            GetInput();
-        }
+        transform.position = Position.Value;
     }
 
     void Idle()
@@ -74,10 +44,15 @@ public class CharacterController : MonoBehaviour
         state = State.Idle;
     }
 
-    void MoveToDirection(Vector3 direction)
+    public void MoveToDirection(Vector2 direction)
     {
         state = State.Moving;
-        transform.position += direction.normalized * Time.deltaTime * speed;
+        Position.Value += direction.normalized * Time.deltaTime * speed;
+    }
+
+    public void MoveToPosition(Vector2 position)
+    {
+        transform.position = position;
     }
 
     void Die()
