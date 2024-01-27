@@ -34,9 +34,4 @@ public class NetworkOptions : Singleton<NetworkOptions>
             player.MoveToDirection(direction);
         }
     }
-
-    public void Ping()
-    {
-
-    }
 }

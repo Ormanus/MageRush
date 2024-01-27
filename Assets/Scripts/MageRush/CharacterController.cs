@@ -57,6 +57,11 @@ public class CharacterController : NetworkBehaviour
         }
     }
 
+    private void Awake()
+    {
+        Position.Value = transform.position;
+    }
+
     private void UpdateHealth(int previousValue, int newValue)
     {
         if (newValue <= 0)
@@ -117,8 +122,8 @@ public class CharacterController : NetworkBehaviour
         while (Time.time - startTime < 3f)
         {
             float t = Time.time - startTime;
-            transform.localEulerAngles = new Vector3(0f, 0f, t * 1000f);
-            transform.position = (startPos + new Vector2(Mathf.Sin(t * 2f), Mathf.Cos(t * 2f)) * t * 10f);
+            transform.localEulerAngles = new Vector3(0f, 0f, t * 2000f);
+            transform.position = startPos + (new Vector2(Mathf.Sin(t * 2f), Mathf.Cos(t * 2f)) * t * 8f);
             float s = 1f - (t / 4f);
             transform.localScale = Vector3.one * s;
             yield return null;
