@@ -21,8 +21,7 @@ public class CharacterController : NetworkBehaviour
     public State state = State.Idle;
     public float speed;
 
-    public bool isHost;
-    public bool isYou;
+    public Shield shield;
 
     public GameObject projectile;
 
@@ -33,12 +32,34 @@ public class CharacterController : NetworkBehaviour
     {
         if (IsServer)
         {
+            if (shield != null)
+            {
+                shield.hitpoints -= amount;
+                if (shield.hitpoints <= 0)
+                {
+                    Destroy(shield);
+                    shield = null;
+                }
+            }
+
             Health.Value -= amount;
             if (Health.Value <= 0)
             {
                 DieClientRpc();
             }
         }
+    }
+
+    [ClientRpc]
+    public void GainShieldClientRpc()
+    {
+
+    }
+
+    [ClientRpc]
+    public void LoseShieldClientRpc()
+    {
+
     }
 
     Vector2 _spawnPoint;
@@ -84,7 +105,7 @@ public class CharacterController : NetworkBehaviour
     [ClientRpc]
     public void CreateAttackClientRpc(Vector2 pos)
     {
-        EffectFactory.Instance.CreateEffect(pos);
+        EffectFactory.Instance.CreateEffect(pos, "fireball");
     }
 
 

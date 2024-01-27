@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class EffectFactory : Singleton<EffectFactory>
 {
-    public GameObject prefab;
+    public GameObject[] prefabs;
 
-    public void CreateEffect(Vector2 pos)
+    public GameObject CreateEffect(Vector2 pos, string name)
     {
-        var go = Instantiate(prefab);
-        go.transform.position = pos;
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            if (prefabs[i].name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                var go = Instantiate(prefabs[i]);
+                go.transform.position = pos;
+                return go;
+            }
+        }
+        return null;
     }
 }
