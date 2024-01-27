@@ -529,7 +529,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gray-spritesheet_0: 4356957636201585122
+      gray-spritesheet_1: -2859328855219227864
+      gray-spritesheet_10: 160736622078164283
+      gray-spritesheet_11: -2669461943196088117
+      gray-spritesheet_12: 4607154394560847575
+      gray-spritesheet_13: -4342114735873026967
+      gray-spritesheet_14: -1545770006899373675
+      gray-spritesheet_15: -4830788524530900053
+      gray-spritesheet_2: 1406930471710165818
+      gray-spritesheet_3: 7005842177900696354
+      gray-spritesheet_4: 9089766014978759477
+      gray-spritesheet_5: 3416846078308466761
+      gray-spritesheet_6: 2211204217219274821
+      gray-spritesheet_7: -5647389194422940835
+      gray-spritesheet_8: -218323337959217655
+      gray-spritesheet_9: 7280288565311383726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

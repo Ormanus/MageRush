@@ -241,7 +241,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goblin-sheet_0: -910039603523305761
+      goblin-sheet_1: 923375887370206124
+      goblin-sheet_2: -4775482100420423077
+      goblin-sheet_3: -7509341325627310180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

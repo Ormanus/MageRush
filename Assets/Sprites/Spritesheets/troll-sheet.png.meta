@@ -241,7 +241,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      troll-sheet_0: 2661775150993042969
+      troll-sheet_1: -3094512723469812802
+      troll-sheet_2: 6967584091408361822
+      troll-sheet_3: -7292626658851230822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
