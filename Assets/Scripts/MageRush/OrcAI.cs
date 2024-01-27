@@ -75,7 +75,7 @@ public class OrcAI : MonoBehaviour
                 if (character == characterController)
                     continue;
 
-                if ((character.transform.position - transform.position).magnitude < 2)
+                if ((character.transform.position - transform.position).sqrMagnitude < attackRadiusSquared)
                     character.TakeDamage(1);
             }
             characterController.Idle();
