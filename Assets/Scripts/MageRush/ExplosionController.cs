@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
@@ -10,6 +11,16 @@ public class ExplosionController : MonoBehaviour
     void Start()
     {
         startTIme = Time.time;
+
+        if (NetworkManager.Singleton.IsServer)
+        {
+            var chars = FindObjectsByType<CharacterController>(FindObjectsSortMode.None);
+            foreach (var character in chars)
+            {
+                if ((character.transform.position - transform.position).magnitude < 2)
+                    character.TakeDamage(1);
+            }
+        }
     }
 
     void Update()
