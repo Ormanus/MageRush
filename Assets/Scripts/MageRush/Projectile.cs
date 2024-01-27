@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     public GameObject explosion;
     public AnimationController animationController;
     public float speed;
-    public Vector2 direction;
+    public Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += speed * Time.deltaTime * direction;
     }
 }
