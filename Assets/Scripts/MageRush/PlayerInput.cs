@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         GetInput();
     }
@@ -45,7 +45,7 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
-
+            GetComponent<CharacterController>().DoNotMove();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

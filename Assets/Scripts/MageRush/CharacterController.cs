@@ -150,6 +150,15 @@ public class CharacterController : NetworkBehaviour
         AnimationState = State.Idle;
     }
 
+    public void DoNotMove()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        if (AnimationState == State.Moving)
+        {
+            Idle();
+        }
+    }
+
     public void AttackState()
     {
         AnimationState = State.Attacking;
