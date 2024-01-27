@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1282322193538719102}
   - component: {fileID: 8388613794902307994}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
