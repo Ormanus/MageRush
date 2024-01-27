@@ -7,16 +7,25 @@ public class OrcAI : MonoBehaviour
 {
     public float seeDistance = 20;
     public CharacterController characterController;
+    public float attackDistance = 1;
+    public float attackRadius = 2;
 
     float seeDistanceSquared;
+    float attackDistanceSquared;
+    float attackRadiusSquared;
+
+    float attackDuration = 1;
+    float attackStartTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        seeDistanceSquared = seeDistance * seeDistance; 
+        seeDistanceSquared = seeDistance * seeDistance;
+        attackDistanceSquared = attackDistance * attackDistance;
+        attackRadiusSquared = attackRadius * attackRadius;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Move()
     {
         PlayerInput[] players = FindObjectsByType<PlayerInput>(FindObjectsSortMode.None);
         if (players.Length > 0)
@@ -30,11 +39,63 @@ public class OrcAI : MonoBehaviour
                     closest = candidate;
                 }
             }
-
-            if ((transform.position - closest.position).sqrMagnitude < seeDistanceSquared)
+            if ((transform.position - closest.position).sqrMagnitude < attackDistanceSquared)
+            {
+                StartAttack();
+            }
+            else if ((transform.position - closest.position).sqrMagnitude < seeDistanceSquared)
             {
                 characterController.MoveToDirection(closest.position - transform.position);
             }
+            else
+            {
+                characterController.Idle();
+            }
+        }
+        else
+        {
+            characterController.Idle();
+        }
+    }
+
+    void StartAttack()
+    {
+        characterController.AttackState();
+        attackStartTime = Time.time;
+        Attack();
+    }
+
+    void Attack()
+    {
+        if (Time.time > attackStartTime + attackDuration)
+        {
+            var chars = FindObjectsByType<CharacterController>(FindObjectsSortMode.None);
+            foreach (var character in chars)
+            {
+                if (character == characterController)
+                    continue;
+
+                if ((character.transform.position - transform.position).magnitude < 2)
+                    character.TakeDamage(1);
+            }
+            characterController.Idle();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (characterController.state)
+        {
+            case CharacterController.State.Moving:
+                Move();
+                break;
+            case CharacterController.State.Attacking:
+                Attack();
+                break;
+            default:
+                Move();
+                break;
         }
     }
 

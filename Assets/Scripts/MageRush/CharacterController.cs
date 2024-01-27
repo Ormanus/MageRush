@@ -10,13 +10,15 @@ public class CharacterController : NetworkBehaviour
         Idle,
         Moving,
         Dead,
-        Squished
+        Squished,
+        Attacking
     }
 
     public Sprite[] idleSprites;
     public Sprite[] movingSprites;
     public Sprite[] deadSprites;
     public Sprite[] squishedSprites;
+    public Sprite[] attackSprites;
 
     public State state = State.Idle;
     public float speed;
@@ -93,9 +95,14 @@ public class CharacterController : NetworkBehaviour
         transform.position = Position.Value;
     }
 
-    void Idle()
+    public void Idle()
     {
         state = State.Idle;
+    }
+
+    public void AttackState()
+    {
+        state = State.Attacking;
     }
 
     public void MoveToDirection(Vector2 direction)
