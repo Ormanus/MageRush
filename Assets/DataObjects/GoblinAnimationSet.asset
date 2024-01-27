@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08443a85f9864ea489f183a4f7c86f15, type: 3}
+  m_Name: GoblinAnimationSet
+  m_EditorClassIdentifier: 
+  spriteSets:
+  - name: Idle
+    sprites:
+    - {fileID: -4775482100420423077, guid: ab2dac93cde99f84c8faabdb49c30a69, type: 3}
+    fps: 0
+  - name: Moving
+    sprites:
+    - {fileID: -7509341325627310180, guid: ab2dac93cde99f84c8faabdb49c30a69, type: 3}
+    fps: 0
+  - name: Attacking
+    sprites:
+    - {fileID: -910039603523305761, guid: ab2dac93cde99f84c8faabdb49c30a69, type: 3}
+    - {fileID: 923375887370206124, guid: ab2dac93cde99f84c8faabdb49c30a69, type: 3}
+    fps: 8

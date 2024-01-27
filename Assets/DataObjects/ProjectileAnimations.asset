@@ -15,6 +15,31 @@ MonoBehaviour:
   spriteSets:
   - name: fireball
     sprites:
-    - {fileID: -9088095657139996331, guid: f93d2e1bfebb9e54fb9ad034acb1297e, type: 3}
-    - {fileID: -9088095657139996331, guid: db172f096fa402944818e07c0197c3a4, type: 3}
+    - {fileID: 21300000, guid: f93d2e1bfebb9e54fb9ad034acb1297e, type: 3}
+    - {fileID: 21300000, guid: db172f096fa402944818e07c0197c3a4, type: 3}
+    fps: 10
+  - name: boulder
+    sprites:
+    - {fileID: 21300000, guid: e1f3a76a030d10d478e87678bbfda6c4, type: 3}
+    fps: 10
+  - name: dirtball
+    sprites:
+    - {fileID: 21300000, guid: 238c1fe3fafe35840822d504ce4ecb37, type: 3}
+    fps: 10
+  - name: bubble
+    sprites:
+    - {fileID: 21300000, guid: 7ebbbb9f9b779ae489cf97e725b6575d, type: 3}
+    fps: 10
+  - name: wave
+    sprites:
+    - {fileID: 21300000, guid: b0af359bbb4dcbf4596c91824f1f211e, type: 3}
+    - {fileID: 21300000, guid: 2450d9b85ddb9334c8d90eedb2bbc999, type: 3}
+    fps: 10
+  - name: shield
+    sprites:
+    - {fileID: 21300000, guid: d70d62bb06a595a45856ab792a7510f6, type: 3}
+    fps: 10
+  - name: arrow
+    sprites:
+    - {fileID: 21300000, guid: b2cade8d391acf14d8bd3e13867fc22b, type: 3}
     fps: 10

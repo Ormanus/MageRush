@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08443a85f9864ea489f183a4f7c86f15, type: 3}
+  m_Name: RedMageAnimations
+  m_EditorClassIdentifier: 
+  spriteSets:
+  - name: Idle
+    sprites:
+    - {fileID: 7023897658153518699, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    fps: 0
+  - name: Moving
+    sprites:
+    - {fileID: 8546080931207770288, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 4003800024224187559, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1497284888474970808, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 7650273000652807929, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 6406326286160924570, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 1129257747458780120, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -2112269030737362542, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 8003469226713928946, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    fps: 0
+  - name: Attacking
+    sprites:
+    - {fileID: 3745998807879648123, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 2209378212986831571, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: 1765613773145850805, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    fps: 0
+  - name: Splat
+    sprites:
+    - {fileID: -4434418413625085015, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    fps: 0

@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -142,10 +142,10 @@ TextureImporter:
       name: assets-objects-boulder_0
       rect:
         serializedVersion: 2
-        x: 450
-        y: 140
-        width: 952
-        height: 1460
+        x: 0
+        y: 0
+        width: 130
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,7 +162,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 56515c5903b5ec641a8a367d12b5a34c
     internalID: 0
     vertices: []
     indices: 
