@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     public AnimationController animationController;
     public float speed;
     public Vector3 direction;
+    public Element element;
 
     public float duration = 1;
     float startTime;
@@ -41,9 +42,23 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.TryGetComponent<CharacterController>(out var character))
         {
-
+            if (element == Element.Water)
+                character.TakeDamage(-1);
+            else
+                character.TakeDamage(1);
+        }
+        else
+        {
+            if (element == Element.Air)
+            {
+                direction = Vector2.Reflect(direction, collision.contacts[0].normal);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
