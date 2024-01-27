@@ -50,8 +50,9 @@ MonoBehaviour:
   sprites: []
   explosion: {fileID: 2472989086595660850, guid: 3ed90c364f9634b44a657e890cdd98c5, type: 3}
   animationController: {fileID: 8396462424303904725}
-  speed: 5
+  speed: 10
   direction: {x: 1, y: 0, z: 0}
+  duration: 1
 --- !u!114 &8396462424303904725
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -423,6 +423,7 @@ MonoBehaviour:
   isHost: 0
   isYou: 0
   hp: 100
+  projectile: {fileID: 4568245603205644785, guid: f4a726800d8fce447b83818250c14b05, type: 3}
 --- !u!114 &-3144764449707171360
 MonoBehaviour:
   m_ObjectHideFlags: 0

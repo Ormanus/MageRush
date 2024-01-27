@@ -45,5 +45,10 @@ public class PlayerInput : MonoBehaviour
         {
 
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (GetComponent<NetworkObject>().IsOwner)
+                GetComponent<CharacterController>().Shoot();
+        }
     }
 }

@@ -23,6 +23,8 @@ public class CharacterController : NetworkBehaviour
     public bool isYou;
     public int hp = 100;
 
+    public GameObject projectile;
+
     NetworkVariable<Vector2> Position = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public override void OnNetworkSpawn()
@@ -58,5 +60,10 @@ public class CharacterController : NetworkBehaviour
     void Die()
     {
         state = State.Dead;
+    }
+
+    public void Shoot()
+    {
+        Instantiate(projectile);
     }
 }
