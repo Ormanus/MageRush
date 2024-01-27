@@ -14,13 +14,24 @@ public class CharacterController : NetworkBehaviour
         Attacking
     }
 
-    public Sprite[] idleSprites;
-    public Sprite[] movingSprites;
-    public Sprite[] deadSprites;
-    public Sprite[] squishedSprites;
-    public Sprite[] attackSprites;
+    public SpriteAnimationSet spriteSet;
+    public AnimationController animationController;
 
-    public State state = State.Idle;
+    State _state = State.Idle;
+    public State AnimationState
+    {
+        get { return _state; }
+        set 
+        {
+            if (_state != value)
+            {
+                Debug.Log("New state: " + value);
+                SelectAnimationSet(value);
+            }
+            _state = value; 
+        }
+    }
+
     public float speed;
 
     public Shield shield;
@@ -66,8 +77,29 @@ public class CharacterController : NetworkBehaviour
 
     Vector2 _spawnPoint;
 
+    void SelectAnimationSet(State newState)
+    {
+        // TODO: select correct sprite set
+
+        if (spriteSet == null)
+            return;
+
+        foreach (var set in spriteSet.spriteSets)
+        {
+            string setName = Enum.GetName(typeof(State), newState);
+            if (set.name.Equals(setName, StringComparison.InvariantCultureIgnoreCase))
+            {
+                animationController.ChangeAnimation(set);
+                return;
+            }
+        }
+        Debug.Log("No matching animation set found!");
+    }
+
     public override void OnNetworkSpawn()
     {
+        AnimationState = State.Idle;
+
         if (IsOwner)
         {
             _spawnPoint = transform.position;
@@ -118,22 +150,23 @@ public class CharacterController : NetworkBehaviour
 
     public void Idle()
     {
-        state = State.Idle;
+        AnimationState = State.Idle;
     }
 
     public void AttackState()
     {
-        state = State.Attacking;
+        AnimationState = State.Attacking;
     }
 
     public void MoveToDirection(Vector2 direction)
     {
-        state = State.Moving;
+        AnimationState = State.Moving;
         Position.Value += direction.normalized * Time.deltaTime * speed;
     }
 
     public void MoveToPosition(Vector2 position)
     {
+        AnimationState = State.Moving;
         transform.position = position;
     }
 
@@ -161,11 +194,11 @@ public class CharacterController : NetworkBehaviour
         transform.localScale = Vector3.one;
         if (IsOwner)
             Position.Value = _spawnPoint;
-        state = State.Idle;
+        AnimationState = State.Idle;
     }
 
     void Die()
     {
-        state = State.Dead;
+        AnimationState = State.Dead;
     }
 }

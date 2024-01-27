@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438e6f0128ec02e4db5e2e96dc406c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites: {fileID: 11400000, guid: fbf019b8a72bb9846bc6b60cf96394c3, type: 2}
   explosion: {fileID: 2472989086595660850, guid: 3ed90c364f9634b44a657e890cdd98c5, type: 3}
   animationController: {fileID: 8396462424303904725}
   speed: 10
@@ -69,7 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames:
-  - {fileID: 21300000, guid: 66b8c71e7f7b16140aae05b876af7e91, type: 3}
+    name: 
+    sprites: []
+    fps: 0
   fps: 3
 --- !u!212 &1282322193538719102
 SpriteRenderer:

@@ -103,7 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames:
-  - {fileID: -751972822098833959, guid: c88cd86e2eff43847932bb3bd64fc8a8, type: 3}
+    name: 
+    sprites: []
+    fps: 0
   fps: 3
 --- !u!114 &2646243280255321661
 MonoBehaviour:
@@ -137,14 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4d003e014bf3d4ebb8ee1570d784c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprites: []
-  movingSprites: []
-  deadSprites: []
-  squishedSprites: []
-  state: 0
+  spriteSet: {fileID: 0}
+  animationController: {fileID: 1259462173458629904}
   speed: 5
-  isHost: 0
-  isYou: 0
+  shield: {fileID: 0}
   projectile: {fileID: 0}
 --- !u!114 &5053289830848905540
 MonoBehaviour:
@@ -158,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8be6d27633bfbb409f951c0f9cce827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   seeDistance: 20
   characterController: {fileID: 8200080134191325635}
+  attackDistance: 1
+  attackRadius: 2
