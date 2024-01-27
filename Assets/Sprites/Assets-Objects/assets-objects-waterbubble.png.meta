@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      assets-objects-waterbubble_0: -7616985407954568054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

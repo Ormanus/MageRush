@@ -193,7 +193,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      assets-objects-windshield_0: -465510337839726003
+      assets-objects-windshield_1: -4984034078365908531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

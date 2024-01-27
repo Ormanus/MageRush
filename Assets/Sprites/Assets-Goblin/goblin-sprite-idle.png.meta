@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goblin-sprite-idle_0: 7649425026516695992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

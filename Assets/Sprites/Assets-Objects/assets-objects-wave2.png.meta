@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      assets-objects-wave2_0: -1584481797964055985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

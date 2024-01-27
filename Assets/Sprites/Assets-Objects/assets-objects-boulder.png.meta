@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      assets-objects-boulder_0: 988731104735298113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

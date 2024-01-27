@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goblin-sprite-fight_0: 4408589344415861614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

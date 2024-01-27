@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      assets-objects-small-earth_0: -5259551450453475817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

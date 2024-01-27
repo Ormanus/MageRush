@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      troll-hit-2_0: 6912985479826855865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

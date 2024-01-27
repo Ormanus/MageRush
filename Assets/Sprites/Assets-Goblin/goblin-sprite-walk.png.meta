@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goblin-sprite-walk_0: -6108129602276991817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
