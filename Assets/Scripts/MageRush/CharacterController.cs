@@ -64,6 +64,6 @@ public class CharacterController : NetworkBehaviour
 
     public void Shoot()
     {
-        Instantiate(projectile);
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }

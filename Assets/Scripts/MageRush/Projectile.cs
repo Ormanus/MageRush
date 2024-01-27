@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
         transform.position += speed * Time.deltaTime * direction;
         if (Time.time > startTime + duration)
         {
-            Instantiate(explosion);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
