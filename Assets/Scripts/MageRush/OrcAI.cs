@@ -85,7 +85,7 @@ public class OrcAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        switch (characterController.state)
+        switch (characterController.AnimationState)
         {
             case CharacterController.State.Moving:
                 Move();

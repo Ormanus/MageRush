@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
         Air
     }
 
-    public Sprite[] sprites;
+    public SpriteAnimationSet sprites;
     public GameObject explosion;
     public AnimationController animationController;
     public float speed;
@@ -22,10 +22,10 @@ public class Projectile : MonoBehaviour
 
     public float duration = 1;
     float startTime;
-    // Start is called before the first frame update
+
     void Start()
     {
-        animationController.ChangeAnimation(sprites);
+        animationController.ChangeAnimation(sprites.spriteSets[0]);
         startTime = Time.time;
     }
 
