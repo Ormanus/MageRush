@@ -50,6 +50,40 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 76493bf969f005343a53eaaec40f48e4, type: 3}
     - {fileID: 8300000, guid: a6c707f950e19eb408985161f0765cb4, type: 3}
+  - audioID: player-death
+    clips:
+    - {fileID: 8300000, guid: 2ffff2ece0c1f5c4faa833fbad3946b9, type: 3}
+    - {fileID: 8300000, guid: 62c995d876591ed41a33841cbd6192be, type: 3}
+    - {fileID: 8300000, guid: 2bf0ea7b5388f6a409cfdcfc10439fa5, type: 3}
+  - audioID: player-hurt
+    clips:
+    - {fileID: 8300000, guid: ebce68dc5e3f69f4d8882637872bcc8e, type: 3}
+    - {fileID: 8300000, guid: a83a432a3b87ac94cabea9e6f8c0ca38, type: 3}
+    - {fileID: 8300000, guid: 062166ff7b19e364baa1b5ffb24b7481, type: 3}
+  - audioID: bounce
+    clips:
+    - {fileID: 8300000, guid: 5d81a5eb9f1f3d74098fb1a989131029, type: 3}
+  - audioID: bubble
+    clips:
+    - {fileID: 8300000, guid: 6edd581c0a5503640bf011fbe55bbbf0, type: 3}
+  - audioID: fireball
+    clips:
+    - {fileID: 8300000, guid: 8c664e9d36365eb47ba154be8726dee1, type: 3}
+  - audioID: small-impact
+    clips:
+    - {fileID: 8300000, guid: 148e3ae513996ab43a1b538e1053fabc, type: 3}
+    - {fileID: 8300000, guid: f9c7aeeba62eb0343852bddc17d0690b, type: 3}
+  - audioID: enemy-hurt
+    clips:
+    - {fileID: 8300000, guid: d53603b34fa06714b85012fe80ff37da, type: 3}
+    - {fileID: 8300000, guid: 2dbdc41d3f3dd3c4d8147d989ee97118, type: 3}
+    - {fileID: 8300000, guid: d7575709b4f81744891f0c7abf12587b, type: 3}
+  - audioID: enemy-death
+    clips:
+    - {fileID: 8300000, guid: a047fd80f2e61654b8b053a8c22a8a03, type: 3}
+  - audioID: dirtball
+    clips:
+    - {fileID: 8300000, guid: 09a595d31f7641c4e98cf27b887f55e9, type: 3}
   Source: {fileID: 2490768033049389502}
 --- !u!82 &2490768033049389502
 AudioSource:
