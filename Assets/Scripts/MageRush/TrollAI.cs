@@ -9,13 +9,13 @@ public class TrollAI : MonoBehaviour
     public CharacterController characterController;
     public float attackDistance = 1;
     public float attackRadius = 2;
+    public float minAttackInterval = 3;
 
     float seeDistanceSquared;
     float attackDistanceSquared;
     float attackRadiusSquared;
 
-    float attackDuration = 1;
-    float attackStartTime;
+    float lastAttackTime;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class TrollAI : MonoBehaviour
         seeDistanceSquared = seeDistance * seeDistance;
         attackDistanceSquared = attackDistance * attackDistance;
         attackRadiusSquared = attackRadius * attackRadius;
+        lastAttackTime = -minAttackInterval;
     }
 
     void Move()
@@ -39,7 +40,7 @@ public class TrollAI : MonoBehaviour
                     closest = candidate;
                 }
             }
-            if ((transform.position - closest.position).sqrMagnitude < attackDistanceSquared)
+            if ((transform.position - closest.position).sqrMagnitude < attackDistanceSquared && Time.time > lastAttackTime + minAttackInterval)
             {
                 StartAttack();
             }
@@ -49,37 +50,40 @@ public class TrollAI : MonoBehaviour
             }
             else
             {
+                characterController.DoNotMove();
                 characterController.Idle();
             }
         }
         else
         {
+            characterController.DoNotMove();
             characterController.Idle();
         }
     }
 
     void StartAttack()
     {
-        characterController.AttackState();
-        attackStartTime = Time.time;
-        Attack();
+        characterController.DoNotMove();
+        characterController.AttackStateCustomEnd(EndAttack);
+        lastAttackTime = Time.time;
     }
 
-    void Attack()
+    void EndAttack()
     {
-        if (Time.time > attackStartTime + attackDuration)
+        Debug.Log("WTF");
+        var chars = FindObjectsByType<CharacterController>(FindObjectsSortMode.None);
+        foreach (var character in chars)
         {
-            var chars = FindObjectsByType<CharacterController>(FindObjectsSortMode.None);
-            foreach (var character in chars)
-            {
-                if (character == characterController)
-                    continue;
+            if (character == characterController)
+                continue;
 
-                if ((character.transform.position - transform.position).sqrMagnitude < attackRadiusSquared)
-                    character.TakeDamage(1);
+            if ((character.transform.position - transform.position).sqrMagnitude < attackRadiusSquared)
+            {
+                character.Squish();
+                character.TakeDamage(1);
             }
-            characterController.Idle();
         }
+        characterController.Idle();
     }
 
     // Update is called once per frame
@@ -88,13 +92,11 @@ public class TrollAI : MonoBehaviour
         switch (characterController.AnimationState)
         {
             case CharacterController.State.Moving:
+            case CharacterController.State.Idle:
                 Move();
                 break;
             case CharacterController.State.Attacking:
-                Attack();
-                break;
             default:
-                Move();
                 break;
         }
     }

@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -751972822098833959, guid: c88cd86e2eff43847932bb3bd64fc8a8, type: 3}
+  m_Sprite: {fileID: 6967584091408361822, guid: 389abc62dc1e9134dba78628880afc87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,6 +111,9 @@ MonoBehaviour:
     sprites: []
     fps: 0
   fps: 3
+  OnAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2646243280255321661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,11 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4d003e014bf3d4ebb8ee1570d784c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 0}
+  spriteSet: {fileID: 11400000, guid: 856c5d327bda0504492ba71445c79ce5, type: 2}
   animationController: {fileID: 1259462173458629904}
   speed: 5
+  player: -1
   shield: {fileID: 0}
-  projectile: {fileID: 0}
 --- !u!114 &5053289830848905540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seeDistance: 20
   characterController: {fileID: 8200080134191325635}
-  attackDistance: 1
-  attackRadius: 2
+  attackDistance: 3
+  attackRadius: 4
 --- !u!50 &-4714115418476840089
 Rigidbody2D:
   serializedVersion: 4
@@ -267,15 +270,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.2}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.17, y: 2.89}
+    oldSize: {x: 2.94, y: 4.78}
     newSize: {x: 2.17, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2.4}
+  m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0

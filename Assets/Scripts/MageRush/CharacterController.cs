@@ -4,6 +4,7 @@ using Unity.Netcode;
 using Unity.Netcode.Components;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterController : NetworkBehaviour
 {
@@ -12,7 +13,7 @@ public class CharacterController : NetworkBehaviour
         Idle,
         Moving,
         Dead,
-        Squished,
+        Splat,
         Attacking
     }
 
@@ -147,8 +148,16 @@ public class CharacterController : NetworkBehaviour
         }
     }
 
+    public void Squish()
+    {
+        DoNotMove();
+        AnimationState = State.Splat;
+        animationController.OnAnimationEnd.AddListener(() => { animationController.OnAnimationEnd.RemoveAllListeners(); Idle(); });
+    }
+
     public void Attack()
     {
+        if (AnimationState == State.Splat){ return; }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = mousePosition - transform.position;
         animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
@@ -157,6 +166,7 @@ public class CharacterController : NetworkBehaviour
 
     public void BigAttack()
     {
+        if (AnimationState == State.Splat) { return; }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = mousePosition - transform.position;
         animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
@@ -237,6 +247,12 @@ public class CharacterController : NetworkBehaviour
         animationController.OnAnimationEnd.AddListener(AttackFinished);
     }
 
+    public void AttackStateCustomEnd(UnityAction unityAction)
+    {
+        AnimationState = State.Attacking;
+        animationController.OnAnimationEnd.AddListener(() => { animationController.OnAnimationEnd.RemoveAllListeners(); unityAction(); });
+    }
+
     void AttackFinished()
     {
         animationController.OnAnimationEnd.RemoveAllListeners();
@@ -245,10 +261,8 @@ public class CharacterController : NetworkBehaviour
 
     public void MoveToDirection(Vector2 direction)
     {
-        Debug.Log("Move");
         if (AnimationState == State.Idle || AnimationState == State.Moving)
         {
-            Debug.Log("Correct State");
             if (direction.x < 0)
             {
                 animationController.SetDirection(AnimationController.AnimationDirection.Left);
