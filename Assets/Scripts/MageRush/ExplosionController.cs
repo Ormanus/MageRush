@@ -11,7 +11,7 @@ public class ExplosionController : MonoBehaviour
 
     void Start()
     {
-        AudioManager.PlaySound("poks");
+        AudioManager.PlaySound("boom");
         startTIme = Time.time;
 
         if (NetworkManager.Singleton.IsServer)
