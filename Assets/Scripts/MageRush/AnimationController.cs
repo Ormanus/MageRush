@@ -25,6 +25,16 @@ public class AnimationController : MonoBehaviour
         _startTime = Time.time;
     }
 
+    public enum AnimationDirection
+    {
+        Left,
+        Right
+    }
+
+    public void SetDirection(AnimationDirection direction)
+    {
+        sr.flipX = direction == AnimationDirection.Left;
+    }
 
     void Update()
     {

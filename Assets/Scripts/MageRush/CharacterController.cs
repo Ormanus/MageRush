@@ -172,6 +172,14 @@ public class CharacterController : NetworkBehaviour
     {
         if (AnimationState == State.Idle || AnimationState == State.Moving)
         {
+            if (direction.x < 0)
+            {
+                animationController.SetDirection(AnimationController.AnimationDirection.Left);
+            }
+            else if (direction.x > 0)
+            {
+                animationController.SetDirection(AnimationController.AnimationDirection.Right);
+            }
             AnimationState = State.Moving;
             GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
         }
