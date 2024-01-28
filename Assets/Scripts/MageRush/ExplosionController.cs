@@ -1,3 +1,4 @@
+using Outloud.Common;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -10,6 +11,7 @@ public class ExplosionController : MonoBehaviour
 
     void Start()
     {
+        AudioManager.PlaySound("poks");
         startTIme = Time.time;
 
         if (NetworkManager.Singleton.IsServer)
