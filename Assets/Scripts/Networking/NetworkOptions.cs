@@ -2,9 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 
 public class NetworkOptions : Singleton<NetworkOptions>
 {
+    public UnityTransport transport;
+
+    string _ip;
+    int _port;
+
+    public void ChangeIP(string ip)
+    {
+        _ip = ip;
+        transport.ConnectionData.Address = ip;
+    }
+
+    public void ChangePort(string port)
+    {
+        _port = int.Parse(port);
+        transport.ConnectionData.Port = (ushort)_port;
+    }
+
+
     public void StartClient()
     {
         NetworkManager.Singleton.StartClient();

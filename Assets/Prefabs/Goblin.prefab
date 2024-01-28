@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 1259462173458629904}
   - component: {fileID: 2646243280255321661}
   - component: {fileID: 8200080134191325635}
-  - component: {fileID: 5053289830848905540}
   - component: {fileID: -4714115418476840089}
   - component: {fileID: -8402466126010235014}
   - component: {fileID: -468547990705887364}
   - component: {fileID: 2445582057465311213}
+  - component: {fileID: -1149423541672072333}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -153,23 +153,6 @@ MonoBehaviour:
   player: -1
   shield: {fileID: 0}
   respawns: 0
---- !u!114 &5053289830848905540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622657695475213179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8be6d27633bfbb409f951c0f9cce827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seeDistance: 15
-  characterController: {fileID: 8200080134191325635}
-  attackDistance: 1.9
-  attackRadius: 2
-  minAttackInterval: 1
 --- !u!50 &-4714115418476840089
 Rigidbody2D:
   serializedVersion: 4
@@ -285,3 +268,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8046417, y: 1.3793168}
   m_EdgeRadius: 0
+--- !u!114 &-1149423541672072333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622657695475213179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a050b2d847206445bc077d8897fbbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeDistance: 15
+  characterController: {fileID: 8200080134191325635}
+  attackDistance: 2
+  attackRadius: 2
+  minAttackInterval: 1

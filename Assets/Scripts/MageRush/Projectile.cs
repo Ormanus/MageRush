@@ -147,7 +147,7 @@ public class Projectile : MonoBehaviour
                     AudioManager.PlaySound("fireball");
                     CharacterController.RequestEffect(point, "wave", direction);
                 }
-                else if (projectile.element == Element.Water)
+                else if (projectile.element == Element.Earth)
                 {
                     AudioManager.PlaySound("fireball");
                     Fusion(projectile, "mud");
