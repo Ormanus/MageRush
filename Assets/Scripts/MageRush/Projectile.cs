@@ -38,7 +38,6 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         animationController.ChangeAnimation(sprites.spriteSets.FirstOrDefault(x => x.name.Contains(name, System.StringComparison.InvariantCultureIgnoreCase)));
-        animationController.SetDirection(direction.x < 0 ? AnimationController.AnimationDirection.Left: AnimationController.AnimationDirection.Right);
         startTime = Time.time;
     }
 
