@@ -37,12 +37,12 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         animationController.ChangeAnimation(sprites.spriteSets.FirstOrDefault(x => x.name.Contains(name, System.StringComparison.InvariantCultureIgnoreCase)));
-        animationController.SetDirection(direction.x < 0 ? AnimationController.AnimationDirection.Left: AnimationController.AnimationDirection.Right);
         startTime = Time.time;
     }
 
     void Update()
     {
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI);
         if (duration == 0)
         {
             return;
