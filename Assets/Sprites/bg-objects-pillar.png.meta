@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 755
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -143,11 +143,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 690
         width: 755
-        height: 1821
+        height: 755
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,10 +159,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bg-objects-pillar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1445
+        width: 755
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7901529f42390642b63b1917fe002b9
+      internalID: -1696085620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d40a15c55d7da2a408af006ba2f71462
     internalID: 0
     vertices: []
     indices: 
@@ -170,6 +191,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      bg-objects-pillar_0: -1696085620
+      bg-objects-pillar_1: 1176902493
       bg-objects-wall_0: 1791682875221001647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Tiles_6
+  m_Name: bg-objects-wall_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -776994003, guid: f9e560436f9b2c643924fcd1c592453e, type: 3}
+  m_Sprite: {fileID: 1791682875221001647, guid: ae8ea78b85762c249b0ca084dde77648, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
