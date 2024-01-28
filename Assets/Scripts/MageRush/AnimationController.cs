@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class AnimationController : MonoBehaviour
 {
     public SpriteAnimation frames;
-    public int fps = 3;
+    public float fps = 3;
     SpriteRenderer sr;
     float _startTime = 0f;
 
@@ -19,10 +19,10 @@ public class AnimationController : MonoBehaviour
             sr = GetComponent<SpriteRenderer>();
     }
 
-    public void ChangeAnimation(SpriteAnimation newFrames, int newFps = 3)
+    public void ChangeAnimation(SpriteAnimation newFrames)
     {
         frames = newFrames;
-        fps = newFps;
+        fps = newFrames.fps;
         _startTime = Time.time;
     }
 
@@ -43,6 +43,8 @@ public class AnimationController : MonoBehaviour
 
     void Update()
     {
+        if (frames.sprites == null)
+            return;
         if (frames.sprites.Length > 0)
         {
             float t = (Time.time - _startTime);

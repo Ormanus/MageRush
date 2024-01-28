@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8388613794902307994}
   - component: {fileID: 3761501806876291370}
   m_Layer: 0
-  m_Name: fireball
+  m_Name: bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,11 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites: {fileID: 11400000, guid: fbf019b8a72bb9846bc6b60cf96394c3, type: 2}
-  explosion: {fileID: 2472989086595660850, guid: 3ed90c364f9634b44a657e890cdd98c5, type: 3}
+  explosion: {fileID: 0}
   animationController: {fileID: 8396462424303904725}
-  speed: 2
+  speed: 5
   direction: {x: 1, y: 0, z: 0}
-  element: 7
+  element: 1
   owner: {fileID: 0}
   duration: 1
 --- !u!114 &8396462424303904725
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f93d2e1bfebb9e54fb9ad034acb1297e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ebbbb9f9b779ae489cf97e725b6575d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -417,7 +417,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9150943, g: 0.59941554, b: 0.056114297, a: 1}
+      maxColor: {r: 0.4302954, g: 0.8412388, b: 0.89433956, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

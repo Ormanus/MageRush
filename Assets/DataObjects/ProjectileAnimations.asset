@@ -43,3 +43,19 @@ MonoBehaviour:
     sprites:
     - {fileID: 21300000, guid: b2cade8d391acf14d8bd3e13867fc22b, type: 3}
     fps: 10
+  - name: firewhip
+    sprites:
+    - {fileID: -120818970, guid: cc267da4270ab0247ad61ef99332515e, type: 3}
+    - {fileID: -1169030377, guid: cc267da4270ab0247ad61ef99332515e, type: 3}
+    - {fileID: -363846207, guid: cc267da4270ab0247ad61ef99332515e, type: 3}
+    fps: 8
+  - name: mud
+    sprites:
+    - {fileID: 21300000, guid: 5479d84af20da2c47a737b22cb949f91, type: 3}
+    fps: 8
+  - name: lava
+    sprites:
+    - {fileID: -353884544, guid: f8917f65f3b94994bac20f92cb800fee, type: 3}
+    - {fileID: 1735591157, guid: f8917f65f3b94994bac20f92cb800fee, type: 3}
+    - {fileID: 1278587547, guid: f8917f65f3b94994bac20f92cb800fee, type: 3}
+    fps: 4

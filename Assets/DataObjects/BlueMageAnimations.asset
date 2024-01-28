@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: Idle
     sprites:
     - {fileID: 789309197, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
-    fps: 10
+    fps: 8
   - name: Moving
     sprites:
     - {fileID: 1801664501, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
@@ -27,16 +27,16 @@ MonoBehaviour:
     - {fileID: -2063395794, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: 1967496280, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: 789309197, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
-    fps: 10
+    fps: 8
   - name: Attacking
     sprites:
     - {fileID: -1508126088, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: 334551776, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: 781606819, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: -424609316, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
-    fps: 10
+    fps: 8
   - name: Splat
     sprites:
     - {fileID: -380681410, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
     - {fileID: 191617148, guid: d64ba761c8adf8c4791d3989f9a19fae, type: 3}
-    fps: 10
+    fps: 8

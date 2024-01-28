@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,11 +7,12 @@ public class PlayerInput : MonoBehaviour
     public SpriteAnimationSet[] spriteSets;
     CharacterController _characterController;
 
-    private void Start()
+    private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         int playerCount = FindObjectsByType<PlayerInput>(FindObjectsSortMode.None).Length;
-        _characterController.spriteSet = spriteSets[playerCount % spriteSets.Length];
+        _characterController.spriteSet = spriteSets[(playerCount - 1) % spriteSets.Length];
+        _characterController.player = playerCount - 1;
     }
 
 
@@ -56,6 +55,12 @@ public class PlayerInput : MonoBehaviour
         {
             // Attack
             _characterController.Attack();
+        }
+
+        if (Input.GetMouseButtonDown((int)MouseButton.Right))
+        {
+            // Attack
+            _characterController.BigAttack();
         }
     }
 }

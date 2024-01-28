@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3117062475622929630}
   - component: {fileID: 8396462424303904725}
   - component: {fileID: 1282322193538719102}
-  - component: {fileID: 8388613794902307994}
   - component: {fileID: 3761501806876291370}
+  - component: {fileID: 3125850793208801343}
   m_Layer: 0
-  m_Name: fireball
+  m_Name: lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,13 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites: {fileID: 11400000, guid: fbf019b8a72bb9846bc6b60cf96394c3, type: 2}
-  explosion: {fileID: 2472989086595660850, guid: 3ed90c364f9634b44a657e890cdd98c5, type: 3}
+  explosion: {fileID: 0}
   animationController: {fileID: 8396462424303904725}
-  speed: 2
+  speed: 0
   direction: {x: 1, y: 0, z: 0}
-  element: 7
+  element: 9
   owner: {fileID: 0}
-  duration: 1
+  duration: 8
 --- !u!114 &8396462424303904725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f93d2e1bfebb9e54fb9ad034acb1297e, type: 3}
+  m_Sprite: {fileID: -353884544, guid: f8917f65f3b94994bac20f92cb800fee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,8 +131,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8388613794902307994
-CircleCollider2D:
+--- !u!50 &3761501806876291370
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568245603205644785}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &3125850793208801343
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -165,35 +192,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!50 &3761501806876291370
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568245603205644785}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Offset: {x: 0.077539206, y: -0.060308397}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 2}
+    newSize: {x: 7.6, y: 7.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.4796243, y: 1.4451627}
+  m_EdgeRadius: 0
 --- !u!1 &6581308436807669798
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 6581308436807669798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.093, y: -0.486, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,7 +320,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -363,7 +373,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -417,7 +427,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9150943, g: 0.59941554, b: 0.056114297, a: 1}
+      maxColor: {r: 0.9098039, g: 0.768764, b: 0.19607842, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -805,7 +815,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -858,11 +868,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 2
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.5
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -945,7 +955,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -1002,7 +1012,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 180.73
       mode: 0
       spread: 0
       speed:
@@ -1064,7 +1074,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 4
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4993,7 +5003,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

@@ -27,15 +27,15 @@ MonoBehaviour:
     - {fileID: 1129257747458780120, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: -2112269030737362542, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: 8003469226713928946, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
-    fps: 0
+    fps: 8
   - name: Attacking
     sprites:
     - {fileID: 3745998807879648123, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: 2209378212986831571, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: 1765613773145850805, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
-    fps: 0
+    fps: 8
   - name: Splat
     sprites:
     - {fileID: -4434418413625085015, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
-    fps: 0
+    fps: 8

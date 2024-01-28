@@ -6,7 +6,7 @@ public class EffectFactory : Singleton<EffectFactory>
 {
     public GameObject[] prefabs;
 
-    public GameObject CreateEffect(Vector2 pos, string name)
+    public GameObject CreateEffect(Vector2 pos, string name, Vector2 direction = default)
     {
         for (int i = 0; i < prefabs.Length; i++)
         {
@@ -20,7 +20,7 @@ public class EffectFactory : Singleton<EffectFactory>
         return null;
     }
 
-    public GameObject CreateProjectile(Vector2 pos, Vector2 direction, string name, float? speed = null)
+    public GameObject CreateProjectile(CharacterController owner, Vector2 pos, Vector2 direction, string name, float? speed = null)
     {
         for (int i = 0; i < prefabs.Length; i++)
         {
@@ -29,7 +29,8 @@ public class EffectFactory : Singleton<EffectFactory>
                 var go = Instantiate(prefabs[i]);
                 go.transform.position = pos;
                 Projectile proj = go.GetComponent<Projectile>();
-                proj.direction = direction;
+                proj.owner = owner;
+                proj.direction = direction.normalized;
                 if (speed != null)
                     proj.speed = speed.Value;
 

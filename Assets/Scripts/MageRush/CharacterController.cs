@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEditor;
 using UnityEngine;
 
@@ -34,13 +35,14 @@ public class CharacterController : NetworkBehaviour
     }
 
     public float speed;
+    public int player = -1;
 
     public Shield shield;
 
-    public GameObject projectile;
-
-    NetworkVariable<Vector2> Position = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    //NetworkVariable<Vector2> Position = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     NetworkVariable<int> Health = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    static CharacterController ServerController = null;
 
     public void TakeDamage(int amount)
     {
@@ -60,6 +62,7 @@ public class CharacterController : NetworkBehaviour
             if (Health.Value <= 0)
             {
                 DieClientRpc();
+                Health.Value = 10;
             }
         }
     }
@@ -74,6 +77,20 @@ public class CharacterController : NetworkBehaviour
     public void LoseShieldClientRpc()
     {
 
+    }
+
+    public static void RequestEffect(Vector2 posiiton, string effectName, Vector2 direction)
+    {
+        if (ServerController != null)
+        {
+            ServerController.CreateEffectClientRpc(posiiton, effectName, direction);
+        }
+    }
+
+    [ClientRpc]
+    public void CreateEffectClientRpc(Vector2 posiiton, string effectName, Vector2 direction)
+    {
+        EffectFactory.Instance.CreateEffect(posiiton, effectName, direction);
     }
 
     Vector2 _spawnPoint;
@@ -109,12 +126,17 @@ public class CharacterController : NetworkBehaviour
         if (IsServer)
         {
             Health.Value = 10;
+
+            if (IsOwner)
+            {
+                ServerController = this;
+            }
         }
     }
 
     private void Awake()
     {
-        Position.Value = transform.position;
+        //Position.Value = transform.position;
     }
 
     private void UpdateHealth(int previousValue, int newValue)
@@ -133,17 +155,60 @@ public class CharacterController : NetworkBehaviour
         AttackServerRpc(transform.position, delta);
     }
 
+    public void BigAttack()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 delta = mousePosition - transform.position;
+        animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
+        BigAttackServerRpc(transform.position, delta);
+    }
+
     [ServerRpc]
     public void AttackServerRpc(Vector2 pos, Vector2 dir)
     {
         CreateAttackClientRpc(pos, dir);
     }
 
+    [ServerRpc]
+    public void BigAttackServerRpc(Vector2 pos, Vector2 dir)
+    {
+        CreateBigAttackClientRpc(pos, dir);
+    }
+
     [ClientRpc]
     public void CreateAttackClientRpc(Vector2 pos, Vector2 dir)
     {
-        EffectFactory.Instance.CreateProjectile(pos, dir, "fireball");
+        EffectFactory.Instance.CreateProjectile(this, pos, dir, GetAttackName(false));
         AttackState();
+    }
+
+    [ClientRpc]
+    public void CreateBigAttackClientRpc(Vector2 pos, Vector2 dir)
+    {
+        EffectFactory.Instance.CreateProjectile(this, pos, dir, GetAttackName(true));
+        AttackState();
+    }
+
+    string GetAttackName(bool big)
+    {
+        string[] smallAttacks =
+        {
+            "firewhip",
+            "bubble",
+            "dirtball",
+            "arrow"
+        };
+        string[] bigAttacks =
+{
+            "fireball",
+            "wave",
+            "boulder",
+            "shield"
+        };
+        if (player == -1)
+            return "BOOM";
+
+        return big ? bigAttacks[player] : smallAttacks[player];
     }
 
     public void Idle()
@@ -153,11 +218,17 @@ public class CharacterController : NetworkBehaviour
 
     public void DoNotMove()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        DoNotMoveServerRpc();
         if (AnimationState == State.Moving)
         {
             Idle();
         }
+    }
+
+    [ServerRpc]
+    public void DoNotMoveServerRpc()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     public void AttackState()
@@ -174,8 +245,10 @@ public class CharacterController : NetworkBehaviour
 
     public void MoveToDirection(Vector2 direction)
     {
+        Debug.Log("Move");
         if (AnimationState == State.Idle || AnimationState == State.Moving)
         {
+            Debug.Log("Correct State");
             if (direction.x < 0)
             {
                 animationController.SetDirection(AnimationController.AnimationDirection.Left);
@@ -185,14 +258,20 @@ public class CharacterController : NetworkBehaviour
                 animationController.SetDirection(AnimationController.AnimationDirection.Right);
             }
             AnimationState = State.Moving;
-            GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
+            MoveServerRpc(direction);
         }
     }
 
-    public void MoveToPosition(Vector2 position)
+    [ServerRpc]
+    public void MoveServerRpc(Vector2 direction)
     {
-        AnimationState = State.Moving;
-        transform.position = position;
+        GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
+    }
+
+    [ServerRpc]
+    public void TeleportServerRpc(Vector2 position)
+    {
+        GetComponent<Rigidbody2D>().position = position;
     }
 
     [ClientRpc]
@@ -219,8 +298,9 @@ public class CharacterController : NetworkBehaviour
         transform.localScale = Vector3.one;
         if (IsOwner)
         {
-            GetComponent<Rigidbody2D>().position = _spawnPoint;
-            Position.Value = _spawnPoint;
+            // TODO: checkpoint system!
+            _spawnPoint = Vector2.zero;
+            TeleportServerRpc(_spawnPoint);
         }
         AnimationState = State.Idle;
     }
