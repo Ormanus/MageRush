@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -51,7 +52,7 @@ public class PlayerInput : MonoBehaviour
         {
             _characterController.DoNotMove();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown((int)MouseButton.Left))
         {
             // Attack
             _characterController.Attack();

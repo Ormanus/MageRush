@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.Netcode;
+using UnityEditor;
 using UnityEngine;
 
 public class CharacterController : NetworkBehaviour
@@ -126,19 +127,22 @@ public class CharacterController : NetworkBehaviour
 
     public void Attack()
     {
-        AttackServerRpc(transform.position);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 delta = mousePosition - transform.position;
+        animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
+        AttackServerRpc(transform.position, delta);
     }
 
     [ServerRpc]
-    public void AttackServerRpc(Vector2 pos)
+    public void AttackServerRpc(Vector2 pos, Vector2 dir)
     {
-        CreateAttackClientRpc(pos);
+        CreateAttackClientRpc(pos, dir);
     }
 
     [ClientRpc]
-    public void CreateAttackClientRpc(Vector2 pos)
+    public void CreateAttackClientRpc(Vector2 pos, Vector2 dir)
     {
-        EffectFactory.Instance.CreateEffect(pos, "fireball");
+        EffectFactory.Instance.CreateProjectile(pos, dir, "fireball");
         AttackState();
     }
 

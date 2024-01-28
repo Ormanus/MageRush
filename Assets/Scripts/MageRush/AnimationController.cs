@@ -15,7 +15,8 @@ public class AnimationController : MonoBehaviour
 
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        if (!sr)
+            sr = GetComponent<SpriteRenderer>();
     }
 
     public void ChangeAnimation(SpriteAnimation newFrames, int newFps = 3)
@@ -33,7 +34,11 @@ public class AnimationController : MonoBehaviour
 
     public void SetDirection(AnimationDirection direction)
     {
-        sr.flipX = direction == AnimationDirection.Left;
+        if (!sr)
+            sr = GetComponent<SpriteRenderer>();
+
+        if (sr)
+            sr.flipX = direction == AnimationDirection.Left;
     }
 
     void Update()

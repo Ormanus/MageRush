@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         animationController.ChangeAnimation(sprites.spriteSets[0]);
+        animationController.SetDirection(direction.x < 0 ? AnimationController.AnimationDirection.Left: AnimationController.AnimationDirection.Right);
         startTime = Time.time;
     }
 

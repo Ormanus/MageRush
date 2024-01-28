@@ -19,4 +19,23 @@ public class EffectFactory : Singleton<EffectFactory>
         }
         return null;
     }
+
+    public GameObject CreateProjectile(Vector2 pos, Vector2 direction, string name, float? speed = null)
+    {
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            if (prefabs[i].name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                var go = Instantiate(prefabs[i]);
+                go.transform.position = pos;
+                Projectile proj = go.GetComponent<Projectile>();
+                proj.direction = direction;
+                if (speed != null)
+                    proj.speed = speed.Value;
+
+                return go;
+            }
+        }
+        return null;
+    }
 }
