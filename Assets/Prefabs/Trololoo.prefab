@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3194722105
+  GlobalObjectIdHash: 4283298089
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteSet: {fileID: 11400000, guid: 856c5d327bda0504492ba71445c79ce5, type: 2}
   animationController: {fileID: 1259462173458629904}
-  speed: 5
+  speed: 3
   player: -1
   shield: {fileID: 0}
 --- !u!114 &5053289830848905540
@@ -167,6 +167,7 @@ MonoBehaviour:
   characterController: {fileID: 8200080134191325635}
   attackDistance: 3
   attackRadius: 4
+  minAttackInterval: 3
 --- !u!50 &-4714115418476840089
 Rigidbody2D:
   serializedVersion: 4
