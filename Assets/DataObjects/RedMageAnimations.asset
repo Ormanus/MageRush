@@ -38,4 +38,8 @@ MonoBehaviour:
     sprites:
     - {fileID: -4434418413625085015, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
+    - {fileID: -1956478080987444033, guid: 00730d4dcaf19ec49b9e322e14a0d0fd, type: 3}
     fps: 8
