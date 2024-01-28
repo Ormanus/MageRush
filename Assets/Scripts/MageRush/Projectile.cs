@@ -80,9 +80,22 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
             // TODO: all the different effects
             if (element == Element.Water)
+            {
                 character.TakeDamage(-1);
+                AudioManager.PlaySound("bubble");
+            }
             else
+            {
                 character.TakeDamage(1);
+                if (character.player >= 0)
+                {
+                    AudioManager.PlaySound("player-hurt");
+                }
+                else
+                {
+                    AudioManager.PlaySound("enemy-hurt");
+                }
+            }
         }
         else if (collision.gameObject.TryGetComponent<Projectile>(out var projectile))
         {

@@ -1,3 +1,4 @@
+using Outloud.Common;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,7 @@ public class TrollAI : MonoBehaviour
 
             if ((character.transform.position - transform.position).sqrMagnitude < attackRadiusSquared)
             {
+                AudioManager.PlaySound("thump");
                 character.Squish();
                 character.TakeDamage(1);
             }

@@ -181,11 +181,11 @@ MonoBehaviour:
   sprites: {fileID: 11400000, guid: fbf019b8a72bb9846bc6b60cf96394c3, type: 2}
   explosion: {fileID: 0}
   animationController: {fileID: 8396462424303904725}
-  speed: 0.7
+  speed: 2
   direction: {x: 1, y: 0, z: 0}
   element: 5
   owner: {fileID: 0}
-  duration: 1
+  duration: 3
 --- !u!114 &8396462424303904725
 MonoBehaviour:
   m_ObjectHideFlags: 0

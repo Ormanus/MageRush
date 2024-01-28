@@ -152,6 +152,7 @@ MonoBehaviour:
   speed: 3
   player: -1
   shield: {fileID: 0}
+  respawns: 0
 --- !u!114 &5053289830848905540
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,6 +84,12 @@ MonoBehaviour:
   - audioID: dirtball
     clips:
     - {fileID: 8300000, guid: 09a595d31f7641c4e98cf27b887f55e9, type: 3}
+  - audioID: boom
+    clips:
+    - {fileID: 8300000, guid: 82c4b7dd2ef3f3c4da5f8283314253a1, type: 3}
+  - audioID: slap
+    clips:
+    - {fileID: 8300000, guid: 48e345e630a532d49a36080e867360f9, type: 3}
   Source: {fileID: 2490768033049389502}
 --- !u!82 &2490768033049389502
 AudioSource:

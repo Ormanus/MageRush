@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2306922430
+  GlobalObjectIdHash: 1255509106
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   speed: 4.5
   player: -1
   shield: {fileID: 0}
+  respawns: 0
 --- !u!114 &5053289830848905540
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: -3927268004273108790}
   - component: {fileID: -7650945048208277902}
   - component: {fileID: -420743770907280238}
+  - component: {fileID: 3949859657213046373}
   m_Layer: 0
-  m_Name: Shield
+  m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,14 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438e6f0128ec02e4db5e2e96dc406c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: {fileID: 0}
+  sprites: {fileID: 11400000, guid: fbf019b8a72bb9846bc6b60cf96394c3, type: 2}
   explosion: {fileID: 0}
-  animationController: {fileID: 0}
+  animationController: {fileID: 3949859657213046373}
   speed: 0
   direction: {x: 0, y: 0, z: 0}
-  element: 0
+  element: 8
   owner: {fileID: 0}
-  duration: 1
+  duration: 5
 --- !u!58 &-7650945048208277902
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +159,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitpoints: 5
+--- !u!114 &3949859657213046373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925973537737228775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f495379ed48dda4695be22fc962d031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+    name: 
+    sprites: []
+    fps: 0
+  fps: 3
+  OnAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []

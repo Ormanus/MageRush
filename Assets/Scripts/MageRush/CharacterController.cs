@@ -6,6 +6,7 @@ using Unity.Netcode.Components;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 
 public class CharacterController : NetworkBehaviour
 {
@@ -41,6 +42,7 @@ public class CharacterController : NetworkBehaviour
     public int player = -1;
 
     public Shield shield;
+    public bool respawns = true;
 
     //NetworkVariable<Vector2> Position = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     NetworkVariable<int> Health = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -70,6 +72,15 @@ public class CharacterController : NetworkBehaviour
             Health.Value -= amount;
             if (Health.Value <= 0)
             {
+                if (player >= 0)
+                {
+                    AudioManager.PlaySound("player-death");
+                }
+                else
+                {
+                    AudioManager.PlaySound("enemy-death");
+                }
+
                 DieClientRpc();
                 Health.Value = maxHealth;
             }
@@ -322,6 +333,12 @@ public class CharacterController : NetworkBehaviour
             float s = 1f - (t / 4f);
             transform.localScale = Vector3.one * s;
             yield return null;
+        }
+
+        if (!respawns)
+        {
+            Destroy(gameObject);
+            yield break;
         }
 
         transform.rotation = Quaternion.identity;
