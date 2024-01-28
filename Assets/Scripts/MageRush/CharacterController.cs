@@ -161,7 +161,7 @@ public class CharacterController : NetworkBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = mousePosition - transform.position;
         animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
-        AttackServerRpc(transform.position, delta);
+        AttackServerRpc((Vector2)transform.position + delta.normalized, delta);
     }
 
     public void BigAttack()
@@ -170,7 +170,7 @@ public class CharacterController : NetworkBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 delta = mousePosition - transform.position;
         animationController.SetDirection(delta.x < 0 ? AnimationController.AnimationDirection.Left : AnimationController.AnimationDirection.Right);
-        BigAttackServerRpc(transform.position, delta);
+        BigAttackServerRpc((Vector2)transform.position + delta.normalized, delta);
     }
 
     [ServerRpc]

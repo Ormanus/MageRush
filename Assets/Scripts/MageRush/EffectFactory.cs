@@ -30,6 +30,7 @@ public class EffectFactory : Singleton<EffectFactory>
                 go.transform.position = pos;
                 Projectile proj = go.GetComponent<Projectile>();
                 proj.owner = owner;
+                Debug.Log(owner.player);
                 proj.direction = direction.normalized;
                 if (speed != null)
                     proj.speed = speed.Value;

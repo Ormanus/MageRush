@@ -89,6 +89,9 @@ public class TrollAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!characterController.IsServer)
+            return;
+
         switch (characterController.AnimationState)
         {
             case CharacterController.State.Moving:
