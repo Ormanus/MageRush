@@ -1,3 +1,4 @@
+using Outloud.Common;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -43,6 +44,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI);
         if (duration == 0)
         {
             return;
@@ -89,11 +91,15 @@ public class Projectile : MonoBehaviour
             if (IsBig && projectile.IsBig)
             {
                 CharacterController.RequestEffect(point, "BOOM", Vector2.zero);
+                AudioManager.PlaySound("boom");
 
                 for (int i = 0; i < 5; i++)
                 {
-                    Vector2 offset = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f);
-                    CharacterController.RequestEffect(point + offset, "BOOM", Vector2.zero);
+                    Timing.DoAfter( () => { 
+                        AudioManager.PlaySound("boom");
+                        Vector2 offset = new Vector2(Random.value * 2f - 1f, Random.value * 2f - 1f);
+                        CharacterController.RequestEffect(point + offset, "BOOM", Vector2.zero);
+                    }, 0.1f * (i + 1));
                 }
                 Destroy(this.gameObject);
                 Destroy(projectile.gameObject);
@@ -103,6 +109,7 @@ public class Projectile : MonoBehaviour
                 if (projectile.element == Element.Water)
                 {
                     Debug.Log("Fusion!");
+                    AudioManager.PlaySound("bounce");
                     Fusion(projectile, "fog");
                 }
                 else if (projectile.element == Element.Air)
@@ -111,6 +118,7 @@ public class Projectile : MonoBehaviour
                 }
                 else if (projectile.element == Element.Earth)
                 {
+                    AudioManager.PlaySound("bounce");
                     Fusion(projectile, "lava");
                 }
             }
@@ -118,15 +126,18 @@ public class Projectile : MonoBehaviour
             {
                 if (projectile.element == Element.Fire)
                 {
+                    AudioManager.PlaySound("small-impact");
                     Destroy(projectile.gameObject);
                 }
                 else if (projectile.element == Element.Air)
                 {
                     speed += 2f;
+                    AudioManager.PlaySound("fireball");
                     CharacterController.RequestEffect(point, "wave", direction);
                 }
                 else if (projectile.element == Element.Water)
                 {
+                    AudioManager.PlaySound("fireball");
                     Fusion(projectile, "mud");
                 }
             }
@@ -134,10 +145,12 @@ public class Projectile : MonoBehaviour
             {
                 if (projectile.element == Element.Fire)
                 {
+                    AudioManager.PlaySound("dirtball");
                     Fusion(projectile, "barrier");
                 }
                 else if (projectile.element == Element.Water)
                 {
+
                     Fusion(projectile, "mud");
                 }
                 else if (projectile.element == Element.Air)

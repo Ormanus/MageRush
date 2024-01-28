@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -468547990705887364}
   - component: {fileID: 2445582057465311213}
   m_Layer: 0
-  m_Name: Trololoo
+  m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6967584091408361822, guid: 389abc62dc1e9134dba78628880afc87, type: 3}
+  m_Sprite: {fileID: -4775482100420423077, guid: ab2dac93cde99f84c8faabdb49c30a69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3194722105
+  GlobalObjectIdHash: 2306922430
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4d003e014bf3d4ebb8ee1570d784c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: 856c5d327bda0504492ba71445c79ce5, type: 2}
+  spriteSet: {fileID: 11400000, guid: 16aa07d92071c234ba28e909895cd3cb, type: 2}
   animationController: {fileID: 1259462173458629904}
-  maxHealth: 5
-  speed: 3
+  maxHealth: 2
+  speed: 4.5
   player: -1
   shield: {fileID: 0}
 --- !u!114 &5053289830848905540
@@ -164,11 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8be6d27633bfbb409f951c0f9cce827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeDistance: 20
+  seeDistance: 15
   characterController: {fileID: 8200080134191325635}
-  attackDistance: 3
-  attackRadius: 4
-  minAttackInterval: 3
+  attackDistance: 1.9
+  attackRadius: 2
+  minAttackInterval: 1
 --- !u!50 &-4714115418476840089
 Rigidbody2D:
   serializedVersion: 4
@@ -272,15 +272,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.097296655, y: -0.029188901}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.94, y: 4.78}
+    oldSize: {x: 1.44, y: 1.6}
     newSize: {x: 2.17, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 0.8046417, y: 1.3793168}
   m_EdgeRadius: 0

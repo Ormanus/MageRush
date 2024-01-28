@@ -1,3 +1,4 @@
+using Outloud.Common;
 using System;
 using System.Collections;
 using Unity.Netcode;
@@ -35,6 +36,7 @@ public class CharacterController : NetworkBehaviour
         }
     }
 
+    public int maxHealth = 10;
     public float speed;
     public int player = -1;
 
@@ -59,12 +61,26 @@ public class CharacterController : NetworkBehaviour
                 }
             }
 
+            if (TryGetComponent<SpriteRenderer>(out var sr))
+            {
+                sr.color = Color.red;
+            }
+            Timing.DoAfter(NormalColor, 0.2f);
+
             Health.Value -= amount;
             if (Health.Value <= 0)
             {
                 DieClientRpc();
-                Health.Value = 10;
+                Health.Value = maxHealth;
             }
+        }
+    }
+
+    void NormalColor()
+    {
+        if (TryGetComponent<SpriteRenderer>(out var sr))
+            {
+            sr.color = Color.white;
         }
     }
 
@@ -126,7 +142,7 @@ public class CharacterController : NetworkBehaviour
 
         if (IsServer)
         {
-            Health.Value = 10;
+            Health.Value = maxHealth;
 
             if (IsOwner)
             {
