@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SpriteAnimationSet[] spriteSets;
+    CharacterController _characterController;
+
+    private void Start()
     {
-        
+        _characterController = GetComponent<CharacterController>();
+        int playerCount = FindObjectsByType<PlayerInput>(FindObjectsSortMode.None).Length;
+        _characterController.spriteSet = spriteSets[playerCount % spriteSets.Length];
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         GetInput();
@@ -41,16 +45,16 @@ public class PlayerInput : MonoBehaviour
         }
         if (dir != Vector2.zero)
         {
-            GetComponent<CharacterController>().MoveToDirection(dir);
+            _characterController.MoveToDirection(dir);
         }
         else
         {
-            GetComponent<CharacterController>().DoNotMove();
+            _characterController.DoNotMove();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Attack
-            GetComponent<CharacterController>().Attack();
+            _characterController.Attack();
         }
     }
 }

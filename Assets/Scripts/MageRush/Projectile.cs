@@ -10,7 +10,11 @@ public class Projectile : MonoBehaviour
         Water,
         Earth,
         Fire,
-        Air
+        Air,
+        BigWater,
+        BigEarth,
+        BigFire,
+        BigAir
     }
 
     public SpriteAnimationSet sprites;
@@ -29,7 +33,6 @@ public class Projectile : MonoBehaviour
         startTime = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += speed * Time.deltaTime * direction;

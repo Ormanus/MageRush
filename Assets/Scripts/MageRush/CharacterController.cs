@@ -79,8 +79,6 @@ public class CharacterController : NetworkBehaviour
 
     void SelectAnimationSet(State newState)
     {
-        // TODO: select correct sprite set
-
         if (spriteSet == null)
             return;
 
@@ -99,6 +97,7 @@ public class CharacterController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         AnimationState = State.Idle;
+        SelectAnimationSet(State.Idle);
 
         if (IsOwner)
         {
@@ -140,10 +139,8 @@ public class CharacterController : NetworkBehaviour
     public void CreateAttackClientRpc(Vector2 pos)
     {
         EffectFactory.Instance.CreateEffect(pos, "fireball");
+        AttackState();
     }
-
-
- 
 
     public void Idle()
     {
@@ -162,13 +159,22 @@ public class CharacterController : NetworkBehaviour
     public void AttackState()
     {
         AnimationState = State.Attacking;
+        animationController.OnAnimationEnd.AddListener(AttackFinished);
+    }
+
+    void AttackFinished()
+    {
+        animationController.OnAnimationEnd.RemoveAllListeners();
+        AnimationState = State.Idle;
     }
 
     public void MoveToDirection(Vector2 direction)
     {
-        AnimationState = State.Moving;
-        // Position.Value += direction.normalized * Time.deltaTime * speed;
-        GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
+        if (AnimationState == State.Idle || AnimationState == State.Moving)
+        {
+            AnimationState = State.Moving;
+            GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
+        }
     }
 
     public void MoveToPosition(Vector2 position)
@@ -200,7 +206,10 @@ public class CharacterController : NetworkBehaviour
         transform.rotation = Quaternion.identity;
         transform.localScale = Vector3.one;
         if (IsOwner)
+        {
+            GetComponent<Rigidbody2D>().position = _spawnPoint;
             Position.Value = _spawnPoint;
+        }
         AnimationState = State.Idle;
     }
 
