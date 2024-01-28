@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class OrcAI : MonoBehaviour
+public class TrollAI : MonoBehaviour
 {
     public float seeDistance = 20;
     public CharacterController characterController;
